@@ -3,14 +3,15 @@
 namespace App\src\Domain\JobListing\Controller;
 
 use App\Http\Controllers\Controller;
-use App\src\Domain\JobListing\Models\JobListing;
+use \App\src\Domain\JobListing\Models\JobListing;
 use Illuminate\Http\Request;
 
 class JobListingsController extends Controller
 {
     public function index()
     {
-       return view('welcome');
+        $joblisting = JobListing::get();
+        return view('JobListing', ['joblisting' => $joblisting] );
     }
 
     public function create()
@@ -23,9 +24,10 @@ class JobListingsController extends Controller
         //
     }
 
-    public function show(JobListing $jobListing)
+    public function show(JobListing $jobListing, $id)
     {
-        //
+        $jobList = JobListing::find($id);
+        return view('JobList', ['jobList' => $jobList]);
     }
 
     public function edit(JobListing $jobListing)
