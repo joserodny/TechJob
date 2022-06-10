@@ -1,104 +1,385 @@
-<div class="relative bg-white overflow-hidden">
-    <div class="max-w-7xl mx-auto">
-        <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-            <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                <polygon points="50,0 100,0 50,100 0,100" />
-            </svg>
+<!-- component -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.tailgrids.com/tailgrids-fallback.css" />
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-            <div>
-                <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
-                    <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
-                        <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
-                            <div class="flex items-center justify-between w-full md:w-auto">
-                                <a href="#">
-                                    <span class="sr-only">Workflow</span>
-                                    <img alt="Workflow" class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg">
+<!-- ====== Navbar Section Start -->
+<header
+    x-data="
+        {
+          navbarOpen: false,
+        }
+      "
+    class="absolute z-50 w-full left-0 top-0"
+>
+    <div class="container">
+        <div class="flex -mx-4 items-center justify-between relative">
+            <div class="px-4 w-60 max-w-full">
+                <a href="javascript:void(0)" class="w-full block py-5">
+                    <img
+                        src="https://cdn.tailgrids.com/1.0/assets/images/logo/logo.svg"
+                        alt="logo"
+                        class="w-full"
+                    />
+                </a>
+            </div>
+            <div class="flex px-4 justify-between items-center w-full">
+                <div>
+                    <button
+                        @click="navbarOpen = !navbarOpen"
+                        :class="navbarOpen && 'navbarTogglerActive'"
+                        id="navbarToggler"
+                        class="
+                  block
+                  absolute
+                  right-4
+                  top-1/2
+                  -translate-y-1/2
+                  lg:hidden
+                  focus:ring-2
+                  ring-primary
+                  px-3
+                  py-[6px]
+                  rounded-lg
+                "
+                    >
+                <span
+                    class="relative w-[30px] h-[2px] my-[6px] block bg-body-color"
+                ></span>
+                        <span
+                            class="relative w-[30px] h-[2px] my-[6px] block bg-body-color"
+                        ></span>
+                        <span
+                            class="relative w-[30px] h-[2px] my-[6px] block bg-body-color"
+                        ></span>
+                    </button>
+                    <nav
+                        x-transition
+                        :class="!navbarOpen && 'hidden'"
+                        id="navbarCollapse"
+                        class="
+                  absolute
+                  py-5
+                  px-6
+                  bg-white
+                  shadow
+                  rounded-lg
+                  max-w-[250px]
+                  w-full
+                  lg:max-w-full lg:w-full
+                  right-4
+                  lg:block lg:static lg:shadow-none
+                  transition-all
+                  top-full
+                "
+                    >
+                        <ul class="blcok lg:flex">
+                            <li>
+                                <a
+                                    href="javascript:void(0)"
+                                    class="
+                        text-base
+                        font-medium
+                        text-dark
+                        hover:text-primary
+                        py-2
+                        lg:inline-flex
+                        flex
+                        lg:ml-12
+                      "
+                                >
+                                    Home
                                 </a>
-                                <div class="-mr-2 flex items-center md:hidden">
-                                    <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
-                                        <span class="sr-only">Open main menu</span>
-                                        <!-- Heroicon name: outline/menu -->
-                                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
-                            <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Product</a>
-
-                            <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Features</a>
-
-                            <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Marketplace</a>
-
-                            <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Company</a>
-
-                            <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a>
-                        </div>
+                            </li>
+                            <li>
+                                <a
+                                    href="javascript:void(0)"
+                                    class="
+                        text-base
+                        font-medium
+                        text-dark
+                        hover:text-primary
+                        py-2
+                        lg:inline-flex
+                        flex
+                        lg:ml-12
+                      "
+                                >
+                                    Payment
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="javascript:void(0)"
+                                    class="
+                        text-base
+                        font-medium
+                        text-dark
+                        hover:text-primary
+                        py-2
+                        lg:inline-flex
+                        flex
+                        lg:ml-12
+                      "
+                                >
+                                    Features
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="javascript:void(0)"
+                                    class="
+                        text-base
+                        font-medium
+                        text-dark
+                        hover:text-primary
+                        py-2
+                        lg:inline-flex
+                        flex
+                        lg:ml-12
+                      "
+                                >
+                                    Login
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="javascript:void(0)"
+                                    class="
+                        text-base
+                        font-medium
+                        text-dark
+                        hover:text-primary
+                        py-2
+                        lg:inline-flex
+                        flex
+                        lg:ml-12
+                      "
+                                >
+                                    sign Up
+                                </a>
+                            </li>
+                        </ul>
                     </nav>
                 </div>
+                <div class="sm:flex justify-end hidden pr-16 lg:pr-0">
+                    <a
+                        href="javascript:void(0)"
+                        class="
+                  text-base
+                  font-medium
+                  text-dark
+                  hover:text-primary
+                  py-3
+                  px-7
+                "
+                    >
+                        Login
+                    </a>
+                    <a
+                        href="javascript:void(0)"
+                        class="
+                  text-base
+                  font-medium
+                  text-white
+                  bg-primary
+                  rounded-lg
+                  py-3
+                  px-7
+                  hover:bg-opacity-90
+                "
+                    >
+                        Sign Up
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ====== Navbar Section End -->
 
-                <!--
-                  Mobile menu, show/hide based on menu open state.
-
-                  Entering: "duration-150 ease-out"
-                    From: "opacity-0 scale-95"
-                    To: "opacity-100 scale-100"
-                  Leaving: "duration-100 ease-in"
-                    From: "opacity-100 scale-100"
-                    To: "opacity-0 scale-95"
-                -->
-                <div class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
-                    <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
-                        <div class="px-5 pt-4 flex items-center justify-between">
-                            <div>
-                                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="">
+<!-- ====== Hero Section Start -->
+<div class="relative pt-[120px] lg:pt-[150px] pb-[110px] bg-white">
+    <div class="container">
+        <div class="flex flex-wrap -mx-4">
+            <div class="w-full lg:w-5/12 px-4">
+                <div class="hero-content">
+                    <h1
+                        class="
+                  text-dark
+                  font-bold
+                  text-4xl
+                  sm:text-[42px]
+                  lg:text-[40px]
+                  xl:text-[42px]
+                  leading-snug
+                  mb-3
+                "
+                    >
+                        Kickstart <br />
+                        Startup Website <br />
+                        with TailGrids.
+                    </h1>
+                    <p class="text-base mb-8 text-body-color max-w-[480px]">
+                        With TailGrids, business and students thrive together. Business
+                        can perfectly match their staffing to changing demand throughout
+                        the dayed.
+                    </p>
+                    <ul class="flex flex-wrap items-center">
+                        <li>
+                            <a
+                                href="javascript:void(0)"
+                                class="
+                      py-4
+                      px-6
+                      sm:px-10
+                      lg:px-8
+                      xl:px-10
+                      inline-flex
+                      items-center
+                      justify-center
+                      text-center text-white text-base
+                      bg-primary
+                      hover:bg-opacity-90
+                      font-normal
+                      rounded-lg
+                    "
+                            >
+                                Get Started
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="javascript:void(0)"
+                                class="
+                      py-4
+                      px-6
+                      sm:px-10
+                      lg:px-8
+                      xl:px-10
+                      inline-flex
+                      items-center
+                      justify-center
+                      text-center text-base
+                      font-normal
+                      text-body-color
+                      hover:text-primary
+                    "
+                            >
+                    <span class="mr-2">
+                      <svg
+                          width="22"
+                          height="22"
+                          viewBox="0 0 22 22"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle cx="11" cy="11" r="11" fill="#3056D3" />
+                        <rect
+                            x="6.90906"
+                            y="13.3636"
+                            width="8.18182"
+                            height="1.63636"
+                            fill="white"
+                        />
+                        <rect
+                            x="10.1818"
+                            y="6"
+                            width="1.63636"
+                            height="4.09091"
+                            fill="white"
+                        />
+                        <path
+                            d="M11 12.5454L13.8343 9.47726H8.16576L11 12.5454Z"
+                            fill="white"
+                        />
+                      </svg>
+                    </span>
+                                Download App
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="clients pt-16">
+                        <h6
+                            class="
+                    font-normal
+                    text-xs
+                    flex
+                    items-center
+                    text-body-color
+                    mb-2
+                  "
+                        >
+                            Some Of Our Clients
+                            <span
+                                class="w-8 h-[1px] bg-body-color inline-block ml-2"
+                            ></span>
+                        </h6>
+                        <div class="flex items-center">
+                            <div class="w-full py-3 mr-4">
+                                <img src="https://cdn.tailgrids.com/1.0/assets/images/brands/ayroui.svg" alt="ayroui" />
                             </div>
-                            <div class="-mr-2">
-                                <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                                    <span class="sr-only">Close main menu</span>
-                                    <!-- Heroicon name: outline/x -->
-                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
-                                </button>
+                            <div class="w-full py-3 mr-4">
+                                <img
+                                    src="https://cdn.tailgrids.com/1.0/assets/images/brands/graygrids.svg"
+                                    alt="graygrids"
+                                />
+                            </div>
+                            <div class="w-full py-3 mr-4">
+                                <img src="https://cdn.tailgrids.com/1.0/assets/images/brands/uideck.svg" alt="uideck" />
                             </div>
                         </div>
-                        <div class="px-2 pt-2 pb-3 space-y-1">
-                            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Product</a>
-
-                            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Features</a>
-
-                            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Marketplace</a>
-
-                            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Company</a>
-                        </div>
-                        <a href="#" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100"> Log in </a>
                     </div>
                 </div>
             </div>
-
-            <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-                <div class="sm:text-center lg:text-left">
-                    <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                        <span class="block xl:inline">Data to enrich your</span>
-                        <span class="block text-indigo-600 xl:inline">online business</span>
-                    </h1>
-                    <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
-                    <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                        <div class="rounded-md shadow">
-                            <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"> Get started </a>
-                        </div>
-                        <div class="mt-3 sm:mt-0 sm:ml-3">
-                            <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"> Live demo </a>
-                        </div>
+            <div class="hidden lg:block lg:w-1/12 px-4"></div>
+            <div class="w-full lg:w-6/12 px-4">
+                <div class="lg:text-right lg:ml-auto">
+                    <div class="relative inline-block z-10 pt-11 lg:pt-0">
+                        <img
+                            src="https://cdn.tailgrids.com/1.0/assets/images/hero/hero-image-01.png"
+                            alt="hero"
+                            class="max-w-full lg:ml-auto"
+                        />
+                        <span class="absolute -left-8 -bottom-8 z-[-1]">
+                  <svg
+                      width="93"
+                      height="93"
+                      viewBox="0 0 93 93"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="2.5" cy="2.5" r="2.5" fill="#3056D3" />
+                    <circle cx="2.5" cy="24.5" r="2.5" fill="#3056D3" />
+                    <circle cx="2.5" cy="46.5" r="2.5" fill="#3056D3" />
+                    <circle cx="2.5" cy="68.5" r="2.5" fill="#3056D3" />
+                    <circle cx="2.5" cy="90.5" r="2.5" fill="#3056D3" />
+                    <circle cx="24.5" cy="2.5" r="2.5" fill="#3056D3" />
+                    <circle cx="24.5" cy="24.5" r="2.5" fill="#3056D3" />
+                    <circle cx="24.5" cy="46.5" r="2.5" fill="#3056D3" />
+                    <circle cx="24.5" cy="68.5" r="2.5" fill="#3056D3" />
+                    <circle cx="24.5" cy="90.5" r="2.5" fill="#3056D3" />
+                    <circle cx="46.5" cy="2.5" r="2.5" fill="#3056D3" />
+                    <circle cx="46.5" cy="24.5" r="2.5" fill="#3056D3" />
+                    <circle cx="46.5" cy="46.5" r="2.5" fill="#3056D3" />
+                    <circle cx="46.5" cy="68.5" r="2.5" fill="#3056D3" />
+                    <circle cx="46.5" cy="90.5" r="2.5" fill="#3056D3" />
+                    <circle cx="68.5" cy="2.5" r="2.5" fill="#3056D3" />
+                    <circle cx="68.5" cy="24.5" r="2.5" fill="#3056D3" />
+                    <circle cx="68.5" cy="46.5" r="2.5" fill="#3056D3" />
+                    <circle cx="68.5" cy="68.5" r="2.5" fill="#3056D3" />
+                    <circle cx="68.5" cy="90.5" r="2.5" fill="#3056D3" />
+                    <circle cx="90.5" cy="2.5" r="2.5" fill="#3056D3" />
+                    <circle cx="90.5" cy="24.5" r="2.5" fill="#3056D3" />
+                    <circle cx="90.5" cy="46.5" r="2.5" fill="#3056D3" />
+                    <circle cx="90.5" cy="68.5" r="2.5" fill="#3056D3" />
+                    <circle cx="90.5" cy="90.5" r="2.5" fill="#3056D3" />
+                  </svg>
+                </span>
                     </div>
                 </div>
-            </main>
+            </div>
         </div>
     </div>
-    <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80" alt="">
-    </div>
 </div>
+<!-- ====== Hero Section End -->
