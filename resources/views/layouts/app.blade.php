@@ -12,8 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
 </head>
-<body class="scroll-smooth">
+<body>
+@include('partials._nav')
     @yield('content')
+    @include('partials._footer')
 </body>
 </html>
 @stack('js')

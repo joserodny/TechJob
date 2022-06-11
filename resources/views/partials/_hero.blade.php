@@ -1,216 +1,27 @@
 <!-- component -->
-<script src="https://cdn.tailwindcss.com"></script>
-<link
-    rel="stylesheet"
-    href="https://cdn.tailgrids.com/tailgrids-fallback.css"
-/>
-<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<div class="relative w-full">
 
-<!-- ====== Navbar Section Start -->
-<header
-    x-data="
-        {
-          navbarOpen: false,
-        }
-      "
-    class="absolute z-50 w-full left-0 top-0"
->
-    <div class="container">
-        <div class="flex -mx-4 items-center justify-between relative">
-            <div class="px-4 w-60 max-w-full h-24">
-                <a href="javascript:void(0)" class="w-full block py-5">
-                    <img
-                        src="images/logo.png"
-                        alt="logo"
-                        class="w-full h-full"
-                    />
-                </a>
-            </div>
-            <div class="flex px-4 justify-between items-center w-full">
-                <div>
-                    <button
-                        @click="navbarOpen = !navbarOpen"
-                        :class="navbarOpen && 'navbarTogglerActive'"
-                        id="navbarToggler"
-                        class="block absolute right-4 top-1/2 -translate-y-1/2 lg:hidden focus:ring-2 ring-primary px-3 py-[6px] rounded-lg"
-                    >
-                        <span
-                            class="relative w-[30px] h-[2px] my-[6px] block bg-body-color"
-                        ></span>
-                        <span
-                            class="relative w-[30px] h-[2px] my-[6px] block bg-body-color"
-                        ></span>
-                        <span
-                            class="relative w-[30px] h-[2px] my-[6px] block bg-body-color"
-                        ></span>
-                    </button>
-                    <nav
-                        x-transition
-                        :class="!navbarOpen && 'hidden'"
-                        id="navbarCollapse"
-                        class="absolute py-5 px-6 bg-white shadow rounded-lg max-w-[250px] w-full lg:max-w-full lg:w-full right-4 lg:block lg:static lg:shadow-none transition-all top-full"
-                    >
-                        <ul class="blcok lg:flex">
-                            <li>
-                                <a
-                                    href="javascript:void(0)"
-                                    class="text-base font-medium text-dark hover:text-primary py-2 lg:inline-flex flex lg:ml-12"
-                                >
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="javascript:void(0)"
-                                    class="text-base font-medium text-dark hover:text-primary py-2 lg:inline-flex flex lg:ml-12"
-                                >
-                                    Payment
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="javascript:void(0)"
-                                    class="text-base font-medium text-dark hover:text-primary py-2 lg:inline-flex flex lg:ml-12"
-                                >
-                                    Features
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="javascript:void(0)"
-                                    class="text-base font-medium text-dark hover:text-primary py-2 block xl:hidden lg:hidden lg:inline-flex flex lg:ml-12"
-                                >
-                                    Login
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="javascript:void(0)"
-                                    class="text-base font-medium text-dark block xl:hidden lg:hidden hover:text-primary py-2 lg:inline-flex flex lg:ml-12"
-                                >
-                                    Sign Up
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="sm:flex justify-end hidden pr-16 lg:pr-0">
-                    <a
-                        href="javascript:void(0)"
-                        class="text-base font-medium text-dark hidden lg:block hover:text-primary py-3 px-7"
-                    >
-                        Login
-                    </a>
-                    <a
-                        href="javascript:void(0)"
-                        class="text-base font-medium text-white bg-primary rounded-lg hidden lg:block py-3 px-7 hover:bg-opacity-90"
-                    >
-                        Sign Up
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- ====== Navbar Section End -->
-
-<!-- ====== Hero Section Start -->
-<div class="relative pt-[120px] lg:pt-[150px] pb-[110px] bg-white">
-    <div class="container">
-        <div class="flex flex-wrap -mx-4">
-            <div class="w-full lg:w-5/12 px-4">
-                <div class="hero-content">
-                    <h1
-                        class="text-dark font-bold text-4xl sm:text-[42px] lg:text-[40px] xl:text-[42px] leading-snug mb-3"
-                    >
-                        Kickstart <br />
-                        Startup Website <br />
-                        with TailGrids.
-                    </h1>
-                    <p class="text-base mb-8 text-body-color max-w-[480px]">
-                        With TailGrids, business and students thrive together.
-                        Business can perfectly match their staffing to changing
-                        demand throughout the dayed.
+    <div class="relative ">
+        <div class="container m-auto px-6 pt-32 md:px-12 lg:pt-[4.8rem] lg:px-7">
+            <div class="flex items-center flex-wrap px-2 md:px-0">
+                <div class="relative lg:w-6/12 lg:py-24 xl:py-32 ">
+                    <h1 class="font-bold text-4xl text-sky-600 md:text-5xl lg:w-10/12">Looking for a job ?</h1>
+                    <br/>
+                    @include('partials._searchbox')
+                    <p class="mt-8 text-gray-700 lg:w-10/12">
+                        Technology jobs are in high demand and often do not require a college degree. Explore different opportunities with your current skill set and learn to code as a backup plan if necessary.
                     </p>
-                    <ul class="flex flex-wrap items-center">
-                        @include('partials._searchbox')
-                    </ul>
-                    <div class="clients pt-16">
-                        <h6
-                            class="font-normal text-xs flex items-center text-body-color mb-2"
-                        >
-                            Some Of Our Clients
-                            <span
-                                class="w-8 h-[1px] bg-body-color inline-block ml-2"
-                            ></span>
-                        </h6>
-                        <div class="flex items-center slider">
-
-
-                            <div class="w-full py-3 mr-4">
-                                <img
-                                    src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg"
-                                    alt="meta"
-                                />
-                            </div>
-
-                                <div class="slide-track2">
-                                    <div class="slide"></div>
-                                    <div class="slide">
-                                        <img
-                                            src="https://cdn.worldvectorlogo.com/logos/microsoft.svg"
-                                            alt="microsoft"
-                                        />
-                                    </div> &nbsp;&nbsp;&nbsp;
-                                    <div class="slide">
-                                        <img
-                                            src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Google_Name.svg"
-                                            alt="google"
-                                        />
-                                    </div>&nbsp;&nbsp;&nbsp;
-                                    <div class="slide">
-                                        <img
-                                            src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg"
-                                            alt="meta"
-                                        />
-                                    </div>&nbsp;&nbsp;&nbsp;
-                                    <div class="slide">
-                                        <img
-                                            src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
-                                            alt="amazon"
-                                        />
-                                    </div>
-                                    &nbsp;&nbsp;&nbsp;
-
-                                </div>
-
-                        </div>
-                    </div>
                 </div>
-            </div>
-            <div class="hidden lg:block lg:w-1/12 px-4"></div>
-            <div class="w-full lg:w-6/12 px-4 hidden md:block">
-                <div class="lg:text-right lg:ml-auto">
-                    <div class="relative inline-block z-10 pt-11 lg:pt-0">
-                        <lottie-player
-                            src="https://assets1.lottiefiles.com/packages/lf20_mrjjdbp9.json"
-                            background="transparent"
-                            speed="1"
-                            style="width: 100%; height: 100%"
-                            loop
-                            autoplay
-                        >
-                        </lottie-player>
-                        <span class="absolute -left-8 -bottom-8 z-[-1]"> </span>
-                    </div>
+                <div class="ml-auto -mb-24 lg:-mb-56 lg:w-6/12 hidden lg:block">
+                    <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_hebegwpc.json"  background="transparent"  speed="1"  style="width: 100%; height: 100%;"  loop  autoplay></lottie-player>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- ====== Hero Section End -->
+
 @push('js')
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 @endpush
 
 @push('style')
@@ -320,6 +131,5 @@
                 }
             }
         }
-
     </style>
 @endpush

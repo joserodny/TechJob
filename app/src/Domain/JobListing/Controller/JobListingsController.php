@@ -10,8 +10,8 @@ class JobListingsController extends Controller
 {
     public function index()
     {
-        $joblisting = JobListing::get();
-        return view('JobListing', ['joblisting' => $joblisting] );
+        $joblistings = JobListing::limit(8)->get();
+        return view('JobListing', ['joblistings' => $joblistings] );
     }
 
     public function create()
