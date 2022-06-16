@@ -10,8 +10,8 @@ class JobListingsController extends Controller
 {
     public function index()
     {
-        $joblistings = JobListing::limit(8)->get();
-        return view('JobListing', ['joblistings' => $joblistings] );
+        $joblistings = JobListing::latest()->limit(8)->filter(\request(['tag', 'search']))->get();
+        return view('listings.index', ['joblistings' => $joblistings] );
     }
 
     public function create()
@@ -24,10 +24,9 @@ class JobListingsController extends Controller
         //
     }
 
-    public function show(JobListing $jobListing, $id)
+    public function show(JobListing $jobListing)
     {
-        $jobList = JobListing::find($id);
-        return view('JobList', ['jobList' => $jobList]);
+        return view('listings.show', ['jobListing' => $jobListing]);
     }
 
     public function edit(JobListing $jobListing)

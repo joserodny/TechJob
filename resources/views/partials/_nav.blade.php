@@ -20,21 +20,12 @@
                 <div class="text-gray-900 md:pr-2 lg:pr-4">
                     <ul class="space-y-6 tracking-wide font-medium text-sm lg:flex md:block md:space-y-0 lg:space-y-0 ">
 
-                        <li class="">
-                            <a href="#" class="block  transition hover:text-yellow-700">
-                                <span>I've a restaurant</span>
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#" class="block  transition hover:text-yellow-700">
-                                <span>Wishlist</span>
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="#" class="block  transition hover:text-yellow-700">
-                                <span>Cart</span>
-                            </a>
-                        </li>
+{{--                        <li class="">--}}
+{{--                            <a href="#" class="block  transition hover:text-yellow-700">--}}
+{{--                                <span></span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+
                     </ul>
                 </div>
 

@@ -14,6 +14,6 @@ use App\src\Domain\JobListing\Controller\JobListingsController;
 */
 
 Route::get('/', [JobListingsController::class, 'index']);
-Route::get('/listings/{id}', [JobListingsController::class, 'show']);
+Route::get('/listings/{jobListing}', [JobListingsController::class, 'show']);
 
 

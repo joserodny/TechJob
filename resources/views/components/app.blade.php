@@ -13,8 +13,8 @@
 
 </head>
 <body>
-@include('partials._nav')
-    @yield('content')
+    @include('partials._nav')
+    {{$slot}}
     @include('partials._footer')
 </body>
 </html>

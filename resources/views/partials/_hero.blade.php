@@ -9,7 +9,7 @@
                     <br/>
                     @include('partials._searchbox')
                     <p class="mt-8 text-gray-700 lg:w-10/12">
-                        Technology jobs are in high demand and often do not require a college degree. Explore different opportunities with your current skill set and learn to code as a backup plan if necessary.
+                        Help shape the future by joining one of the fastest growing technology startups.
                     </p>
                 </div>
                 <div class="ml-auto -mb-24 lg:-mb-56 lg:w-6/12 hidden lg:block">
