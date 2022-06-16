@@ -4,10 +4,13 @@
         <div class="container py-24 mx-auto">
             <div class="flex flex-wrap w-full mb-20">
                 <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
-                    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"><a href="/">Latest Job Ads</a></h1>
-                    <div class="h-1 w-20 bg-indigo-500 rounded"></div>
+                    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"><a href="/">Latest Job Ads</a>
+                    </h1>
+                    <div class="mb-8 h-1 w-20 bg-indigo-500 rounded"></div>
+                    <a href="/listings/create" class=" w-full py-3 px-6 text-center rounded-full transition bg-yellow-300 hover:bg-yellow-100 active:bg-yellow-400 focus:bg-yellow-300 sm:w-max">Post Job</a>
                 </div>
             </div>
+
             <!-- component -->
             <div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
                 @foreach($joblistings as $joblisting)

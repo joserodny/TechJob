@@ -4,6 +4,7 @@ namespace App\src\Domain\JobListing\Controller;
 
 use App\Http\Controllers\Controller;
 use \App\src\Domain\JobListing\Models\JobListing;
+use App\src\Domain\JobListing\Requests\StoreListingRequest;
 use Illuminate\Http\Request;
 
 class JobListingsController extends Controller
@@ -16,12 +17,14 @@ class JobListingsController extends Controller
 
     public function create()
     {
-        //
+        return view('listings.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreListingRequest $request)
     {
-        //
+        $formStore = $request->validated();
+        JobListing::create($formStore);
+        return redirect('/');
     }
 
     public function show(JobListing $jobListing)

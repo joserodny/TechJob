@@ -1,5 +1,6 @@
 <div class="overflow-hidden z-0 rounded-full relative p-3">
     <form action="/" role="form" class="relative flex z-50 bg-white rounded-full">
+        @csrf
         <input type="text" placeholder="Search Job here" class="rounded-full flex-1 px-6 py-4 text-gray-700 focus:outline-none" name="search">
         <button type="submit" class="bg-indigo-500 text-white rounded-full font-semibold px-8 py-4 hover:bg-indigo-400 focus:bg-indigo-600 focus:outline-none">Search</button>
     </form>
