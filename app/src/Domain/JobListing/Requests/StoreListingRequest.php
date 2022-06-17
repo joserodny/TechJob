@@ -32,7 +32,6 @@ class StoreListingRequest extends FormRequest
             'email'         => ['required', 'string', 'email'],
             'tags'          => 'required|string|max:255',
             'description'   => 'required|string|max:255',
-//            'photo'         => 'required',
         ];
     }
 }

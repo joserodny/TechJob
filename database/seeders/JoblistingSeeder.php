@@ -27,6 +27,7 @@ class JoblistingSeeder extends Seeder
                 'email' => $faker->email(),
                 'website' => $faker->url(),
                 'description' => $faker->paragraph(4),
+
             ]);
         }
     }

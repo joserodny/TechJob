@@ -7,11 +7,12 @@ use \App\src\Domain\JobListing\Models\JobListing;
 use App\src\Domain\JobListing\Requests\StoreListingRequest;
 use Illuminate\Http\Request;
 
+
 class JobListingsController extends Controller
 {
     public function index()
     {
-        $joblistings = JobListing::latest()->limit(8)->filter(\request(['tag', 'search']))->get();
+        $joblistings = JobListing::latest()->limit(8)->filter(\request(['tag', 'search']))->paginate(8);
         return view('listings.index', ['joblistings' => $joblistings] );
     }
 
@@ -23,8 +24,11 @@ class JobListingsController extends Controller
     public function store(StoreListingRequest $request)
     {
         $formStore = $request->validated();
+        if($request->hasFile('logo')) {
+            $formStore['logo'] = $request->file('logo')->store('logos', 'public');
+        }
         JobListing::create($formStore);
-        return redirect('/');
+        return redirect('/')->with('message', 'Listing created successfully');
     }
 
     public function show(JobListing $jobListing)

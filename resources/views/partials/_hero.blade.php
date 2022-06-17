@@ -2,7 +2,9 @@
 <div class="relative w-full">
 
     <div class="relative ">
+
         <div class="container m-auto px-6 pt-32 md:px-12 lg:pt-[4.8rem] lg:px-7">
+            <x-flash-message />
             <div class="flex items-center flex-wrap px-2 md:px-0">
                 <div class="relative lg:w-6/12 lg:py-24 xl:py-32 ">
                     <h1 class="font-bold text-4xl text-sky-600 md:text-5xl lg:w-10/12">Looking for a job ?</h1>
@@ -22,6 +24,7 @@
 
 @push('js')
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
 @endpush
 
 @push('style')

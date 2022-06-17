@@ -1,5 +1,8 @@
+
 <nav  x-data="{ isOpen: false }"
       :aria-expanded="isOpen" class="fixed z-10 w-full bg-white md:absolute md:bg-transparent">
+
+
     <div class="container m-auto px-2 md:px-12 lg:px-7">
         <div class="flex flex-wrap items-center justify-between py-3 gap-6 md:py-4 md:gap-0">
             <div class="w-full px-6 flex justify-between lg:w-max md:px-0">

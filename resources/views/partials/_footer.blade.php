@@ -65,7 +65,6 @@
         </div>
 
         <hr class="h-px my-6 bg-gray-300 border-none dark:bg-gray-700">
-
         <div>
             <p class="text-center text-gray-800 dark:text-white">© techjob 2022 - All rights reserved</p>
         </div>

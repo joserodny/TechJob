@@ -1,4 +1,5 @@
 <x-app>
+
     @include('partials._hero')
     <section class="text-gray-600 body-font">
         <div class="container py-24 mx-auto">
@@ -42,6 +43,11 @@
                     </div>
                 @endforeach
             </div>
+                <div class="mb-8 px-4 mx-auto mt-8">
+                    {{ $joblistings->links('pagination::tailwind') }}
+                </div>
         </div>
+
     </section>
+
 </x-app>
