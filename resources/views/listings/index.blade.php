@@ -1,5 +1,5 @@
 <x-app>
-
+    @include('partials._nav')
     @include('partials._hero')
     <section class="text-gray-600 body-font">
         <div class="container py-24 mx-auto">

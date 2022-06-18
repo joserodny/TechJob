@@ -1,4 +1,5 @@
 <x-app>
+    @include('partials._nav')
     <section class="text-gray-600 body-font relative">
         <div class="container px-5 py-24 mx-auto">
             <section class=" py-1 bg-blueGray-50">
@@ -99,7 +100,7 @@
                                             <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
                                                 Description
                                             </label>
-                                            <textarea value="{{old('description')}}" name="description" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" rows="4"> </textarea>
+                                            <input value="{{old('description')}}" name="description" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" rows="4"> </input>
                                             @error('description')
                                             <p class="text-xs italic text-red-500">{{$message}}</p>
                                             @enderror

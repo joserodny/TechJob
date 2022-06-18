@@ -5,7 +5,9 @@ namespace App\src\Domain\JobListing\Controller;
 use App\Http\Controllers\Controller;
 use \App\src\Domain\JobListing\Models\JobListing;
 use App\src\Domain\JobListing\Requests\StoreListingRequest;
+use App\src\Domain\JobListing\Requests\UpdateListingRequest;
 use Illuminate\Http\Request;
+
 
 
 class JobListingsController extends Controller
@@ -38,16 +40,23 @@ class JobListingsController extends Controller
 
     public function edit(JobListing $jobListing)
     {
-        //
+        return view('listings.edit', ['jobListing' => $jobListing]);
     }
 
-    public function update(Request $request, JobListing $jobListing)
+    public function update(UpdateListingRequest $request, JobListing $jobListing)
     {
-        //
+        $formUpdate = $request->validated();
+
+        if($request->hasFile('logo')) {
+            $formUpdate['logo'] = $request->file('logo')->store('logos', 'public');
+        }
+        $jobListing->update($formUpdate);
+        return redirect('/')->with('message', 'Listing update successfully');
     }
 
     public function destroy(JobListing $jobListing)
     {
-        //
+        $jobListing->delete();
+        return redirect('/')->with('message', 'Listing deleted successfully');
     }
 }

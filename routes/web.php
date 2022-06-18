@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\src\Domain\JobListing\Controller\JobListingsController;
+use \App\src\Domain\JobListing\Controller\JobListingsController;
+use \App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,10 +15,8 @@ use App\src\Domain\JobListing\Controller\JobListingsController;
 */
 
 Route::get('/', [JobListingsController::class, 'index']);
-Route::get('/listings/create', [JobListingsController::class, 'create']);
-Route::post('/listings', [JobListingsController::class, 'store']);
-Route::get('/listings/{jobListing}', [JobListingsController::class, 'show']);
+//routes::resource('listings', JobListingsController::class);
 
-
-//Route::resource('listings', JobListingsController::class);
-
+//user Register
+Route::get('/register', [UserController::class, 'create']);
+Route::post('/users', [UserController::class, 'store']);
