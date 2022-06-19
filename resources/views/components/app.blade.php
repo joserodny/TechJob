@@ -13,7 +13,7 @@
 </head>
 <body>
     {{$slot}}
-
+    @include('partials._footer')
 </body>
 </html>
 @stack('js')

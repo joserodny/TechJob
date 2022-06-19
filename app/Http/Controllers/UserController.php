@@ -6,6 +6,7 @@ use App\Http\Requests\RegisterFormRequest;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -50,6 +51,19 @@ class UserController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/')->with('message', 'You have been logged out!');
+    }
+
+    public function authenticate(Request $request)
+    {
+        $formFields = $request->validate([
+           'email' => ['required', 'email'],
+           'password' => 'required'
+        ]);
+        if (auth()->attempt($formFields)) {
+            $request->session()->regenerateToken();
+            return redirect('/')->with('message', 'You are now logged in!');
+        }
+        return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
     }
 
 }

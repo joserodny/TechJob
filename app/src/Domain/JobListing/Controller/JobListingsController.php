@@ -12,7 +12,7 @@ class JobListingsController extends Controller
 {
     public function index()
     {
-        $joblistings = JobListing::latest()->limit(8)->filter(\request(['tag', 'search']))->paginate(8);
+        $joblistings = JobListing::select('id', 'title', 'tags', 'company')->latest()->limit(8)->filter(\request(['tag', 'search']))->paginate(8);
 
         return view('listings.index', ['joblistings' => $joblistings]);
     }
@@ -45,8 +45,10 @@ class JobListingsController extends Controller
 
     public function update(UpdateListingRequest $request, JobListing $jobListing)
     {
+        if($jobListing->user_id != auth()->id()){
+            abort(404, 'Unauthorized action');
+        }
         $formUpdate = $request->validated();
-
         if ($request->hasFile('logo')) {
             $formUpdate['logo'] = $request->file('logo')->store('logos', 'public');
         }
@@ -57,8 +59,17 @@ class JobListingsController extends Controller
 
     public function destroy(JobListing $jobListing)
     {
+        if($jobListing->user_id != auth()->id()){
+            abort(404, 'Unauthorized action');
+        }
         $jobListing->delete();
 
         return redirect('/')->with('message', 'Listing deleted successfully');
+    }
+
+    //custom function
+    public function manage()
+    {
+        return view('listings.manage', ['listings' => auth()->user()->listings()->get()]);
     }
 }

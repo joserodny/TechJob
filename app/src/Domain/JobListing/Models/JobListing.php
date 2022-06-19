@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\src\Domain\JobListing\Models;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -32,5 +33,11 @@ class JobListing extends Model
                   ->orWhere('description', 'like', '%'.request('search').'%')
                   ->orWhere('tags', 'like', '%'.request('search').'%');
         }
+    }
+
+    //user relationship
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
