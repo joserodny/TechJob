@@ -36,7 +36,7 @@
 
                         <li class="pr-4 flex items-center justify-between">
                             <span class="">
-                                Welcome, {{auth()->user()->firstname}}
+                                Welcome, {{auth()->user()->name}}
                             </span>
                         </li>
 
