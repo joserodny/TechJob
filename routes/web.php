@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\UserController;
+use App\src\Domain\JobListing\Controller\JobListingsController;
 use Illuminate\Support\Facades\Route;
-use \App\src\Domain\JobListing\Controller\JobListingsController;
-use \App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

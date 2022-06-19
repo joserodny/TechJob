@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\DB;
 
 class JoblistingSeeder extends Seeder
 {
-
-
     /**
      * Run the database seeds.
      *
@@ -18,7 +16,7 @@ class JoblistingSeeder extends Seeder
     public function run()
     {
         $faker = \Faker\Factory::create();
-        for ($count=0; $count<10; $count++){
+        for ($count = 0; $count < 10; $count++) {
             DB::table('job_listings')->insert([
                 'title' => $faker->sentence(),
                 'tags' => 'laravel, api, back end',
