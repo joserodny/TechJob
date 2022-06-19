@@ -1,7 +1,9 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\src\Domain\JobListing\Models;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,22 +14,23 @@ class JobListing extends Model
     protected $fillable = [
         'company',
         'title',
-        'location' ,
-        'website' ,
-        'email' ,
+        'location',
+        'website',
+        'email',
         'tags',
         'description',
-        'logo'
+        'logo',
     ];
 
-    public function scopeFilter($query, array $filters) {
-        if($filters['tag'] ?? false) {
-            $query->where('tags', 'like', '%' . request('tag') . '%');
+    public function scopeFilter($query, array $filters)
+    {
+        if ($filters['tag'] ?? false) {
+            $query->where('tags', 'like', '%'.request('tag').'%');
         }
-        if($filters['search'] ?? false) {
-            $query->where('title', 'like', '%' . request('search') . '%')
-                  ->orWhere('description', 'like', '%' . request('search') . '%')
-                  ->orWhere('tags', 'like', '%' . request('search') . '%');
+        if ($filters['search'] ?? false) {
+            $query->where('title', 'like', '%'.request('search').'%')
+                  ->orWhere('description', 'like', '%'.request('search').'%')
+                  ->orWhere('tags', 'like', '%'.request('search').'%');
         }
     }
 }
