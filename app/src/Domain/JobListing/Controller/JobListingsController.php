@@ -12,7 +12,7 @@ class JobListingsController extends Controller
 {
     public function index()
     {
-        $joblistings = JobListing::select('id', 'title', 'tags', 'company')->latest()->limit(8)->filter(\request(['tag', 'search']))->paginate(8);
+        $joblistings = JobListing::select('id', 'location', 'title', 'tags', 'company')->latest()->limit(8)->filter(\request(['tag', 'search']))->paginate(8);
 
         return view('listings.index', ['joblistings' => $joblistings]);
     }
