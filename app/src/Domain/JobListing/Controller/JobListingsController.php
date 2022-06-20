@@ -28,6 +28,7 @@ class JobListingsController extends Controller
         if ($request->hasFile('logo')) {
             $formStore['logo'] = $request->file('logo')->store('logos', 'public');
         }
+        $formStore['user_id'] = auth()->id();
         JobListing::create($formStore);
 
         return redirect('/')->with('message', 'Listing created successfully');
