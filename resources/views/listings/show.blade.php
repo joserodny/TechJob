@@ -62,7 +62,7 @@
 
                         <h1 class="font-bold text-4xl text-sky-600 md:text-5xl lg:w-10/12 pb-8">Job Description</h1>
                         <x-listing-tags :tags="$jobListing->tags"/>
-                        <p class="leading-relaxed text-lg mb-9">{{$jobListing->description}}</p>
+                        <p class="leading-relaxed text-lg mb-9 whitespace-pre-line">{{$jobListing->description}}</p>
                     </div>
                 </div>
             </div>

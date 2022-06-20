@@ -31,7 +31,7 @@ class UpdateListingRequest extends FormRequest
             'website'       => 'required|string|max:255',
             'email'         => ['required', 'string', 'email'],
             'tags'          => 'required|string|max:255',
-            'description'   => 'required|string|max:255',
+            'description'   => 'required|string',
         ];
     }
 }
