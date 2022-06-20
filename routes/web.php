@@ -1,8 +1,11 @@
 <?php
 
+
+use App\Http\Controllers\GithubsController;
 use App\Http\Controllers\UserController;
-use App\src\Domain\JobListing\Controller\JobListingsController;
+// use App\src\Domain\JobListing\Controller\JobListingsController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +18,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [JobListingsController::class, 'index']);
+
 //routes::resource('listings', JobListingsController::class);
+// socialite
+
+Route::controller(GithubsController::class)->group(function(){
+    Route::get('/github', 'redirectGithub')->name('git');
+    Route::get('/auth/github/callback', 'GithubCallBack');
+});
+
+
 
 //user Register
-Route::get('/register', [UserController::class, 'create']);
+Route::group(['middleware' => ['guest']], function () {
+    Route::get('/login', [UserController::class, 'index'])->name('login');
+    Route::get('/register', [UserController::class, 'create']);
+});
+
 Route::post('/users', [UserController::class, 'store']);
-Route::post('/logout', [UserController::class, 'logout']);
+Route::post('/logout', [UserController::class, 'destroy']);
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+
+
