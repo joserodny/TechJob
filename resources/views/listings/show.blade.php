@@ -30,7 +30,7 @@
                             </a>
 
                         </div>
-                        @if($jobListing->user_id != Auth::user()->id)
+                        @if($jobListing->user_id != auth()->id())
                         @else
                             @auth()
                                 <div class="grid grid-cols-2 w-40 ">
