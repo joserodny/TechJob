@@ -19,7 +19,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                                 </svg>
-                                <span>&nbsp; Contact Employer</span>
+                                <span>&nbsp; Contact Employer</span>w
                             </a>
 
                             <a href="{{$jobListing->website}}" class="mb-8 flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-gray-600 transition-colors duration-150 bg-blue-300 hover:bg-blue-100 active:bg-blue-400-400 focus:bg-yellow-300 sm:w-max">
