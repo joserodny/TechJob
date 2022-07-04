@@ -31,14 +31,12 @@ Route::controller(GithubsController::class)->group(function(){
 
 //user Register
 Route::group(['middleware' => ['guest']], function () {
-    
-});
-
-Route::get('/login', [UserController::class, 'index'])->name('login');
+    Route::get('/login', [UserController::class, 'index'])->name('login');
     Route::get('/register', [UserController::class, 'create']);
+});
 
 Route::post('/users', [UserController::class, 'store']);
 Route::post('/logout', [UserController::class, 'destroy']);
-//Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 
